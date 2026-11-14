@@ -9,4 +9,9 @@ export interface Result{period_before:string;period_after:string;water_before:nu
 export interface Run{id:string;comparison_id:string;status:string;result:Result;error:string;created_at:string}
 export interface Review{id:string;run_id:string;note:string;decision:string;author:string;created_at:string}
 export interface Report{id:string;run_id:string;title:string;published_by:string;created_at:string}
+export interface BudgetCandidate{zone:string;name:string;cost:number;saving:number}
+export interface BudgetDecision{zone:string;baseline_water:number;option:string;cost:number;saving:number;residual_water:number}
+export interface BudgetResult{solved_at:string;period:string;met:boolean;budget:number;target_saving:number;total_cost:number;total_saving:number;budget_remaining:number;saving_gap:number;baseline_total:number;decisions:BudgetDecision[];rule:string}
+export interface BudgetHistory{budget:number;target_saving:number;result:BudgetResult;changed_at:string}
+export interface BudgetPlan{id:string;name:string;run_id:string;period:string;budget:number;target_saving:number;baseline:{zone:string;water_after:number}[];candidates:BudgetCandidate[];result:BudgetResult;history:BudgetHistory[];note:string;created_by:string;created_at:string;updated_at:string}
 export interface Audit{id:string;actor:string;action:string;status:number;created_at:string}

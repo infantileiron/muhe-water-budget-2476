@@ -4,4 +4,5 @@ from .comparison import PeriodComparison
 from .run import DecompositionRun
 from .review import DriverReview
 from .report import PublishedReport
+from .budget import BudgetPlan
 from .audit import AuditEvent

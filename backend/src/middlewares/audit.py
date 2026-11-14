@@ -7,7 +7,7 @@ from src.utils.security import decode
 class AuditMiddleware(BaseHTTPMiddleware):
  async def dispatch(self,request,call_next):
   response=await call_next(request)
-  if request.method in ("POST","PATCH","DELETE"):
+  if request.method in ("POST","PUT","PATCH","DELETE"):
    actor="anonymous"
    try: actor=decode(request.headers.get("authorization","").split(" ",1)[1])["email"]
    except Exception: pass
